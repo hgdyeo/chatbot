@@ -1,0 +1,10 @@
+services:
+  - docker
+
+before_install:
+  - docker image build -t yeomans/chatbotimage:v1.0 .
+
+
+deploy:
+  - docker login --username "$DOCKERUSR" --password "$DOCKERPWD"
+  - docker image push yeomans/chatbotimage:v1.0
